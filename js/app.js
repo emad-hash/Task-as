@@ -10,3 +10,11 @@ toggleBtn.onclick = function () {
     ? 'fa-solid fa-xmark'
     : 'fa-solid fa-bars'
 }
+
+let typed = new Typed("#auto-input", {
+    strings: ["eating","Sleeping","Lifestyle"],
+    typeSpeed: 300,
+    backspeed:200,
+    loop: true
+})
+  
