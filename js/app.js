@@ -28,7 +28,7 @@ let owl = $(".img-carousel");
             merge: true,
             // left: true,
             dotsEach: true,
-            autoplayHoverPause: true,
+            // autoplayHoverPause: true,
             animateOut: 'flipInY',
             animateIn: 'flipInY',
             autoplay: false,
