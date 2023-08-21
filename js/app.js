@@ -1,3 +1,22 @@
+// scroll : header background position fixed 
+$(document).ready(function(){
+    $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+    if (scroll > 300) {
+          $(".header").css("background" , "none");
+          $(".header").css("box-shadow" , "0px 0px 50px 0px #aa50ff");
+          $(".links a").css("color", "black");
+        }
+  
+        else{
+            $(".header").css("background" , "none");
+            $(".links a").css("color", "white");
+
+        }
+    })
+  });
+
+
 const toggleBtn = document.querySelector('.toggle_btn');
 const toggleBtnIcon = document.querySelector('.toggle_btn i');
 const dropdownMenu = document.querySelector('.dropdown_menu');
@@ -11,6 +30,7 @@ toggleBtn.onclick = function () {
     : 'fa-solid fa-bars'
 }
 
+
 let typed = new Typed("#auto-input", {
     strings: ["eating","Sleeping","Lifestyle"],
     typeSpeed: 300,
@@ -18,22 +38,23 @@ let typed = new Typed("#auto-input", {
     loop: true
 })
 
+
 let owl = $(".img-carousel");
         owl.owlCarousel({
             // margin: 15,
-            // loop: false,
+            loop: true,
             stagePadding: 10,
             nav: true,
             navText: ["<b>‹</b>", "<b>›</b>"],
             merge: true,
-            // left: true,
+            center: true,
             dotsEach: true,
-            // autoplayHoverPause: true,
+            autoplayHoverPause: true,
             animateOut: 'flipInY',
             animateIn: 'flipInY',
-            autoplay: false,
+            // autoplay: trie,
             rewind: true,
-            autoplayTimeout: 10000,
+            autoplayTimeout: 1000,
             responsive: {
                 0: {
                     items: 1
@@ -54,11 +75,13 @@ let owl = $(".img-carousel");
         });
 
 
+
+
         // ! later
 const carousel = document.querySelector(".carousel");
 const firstCardWidth = carousel.querySelector(".cardwrapper").offsetWidth;
 const arrowBtns = document.querySelectorAll(".wrapper2 i");
-const carouselChildrens = [...carousel.children];
+// const carouselChildrens = [...carousel.children];
 
 // get the number of cards that can fit in the arousel at once
 // let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
@@ -78,24 +101,27 @@ arrowBtns.forEach(btn => {
         carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
     })
 });
+
+
+const carousel1 = document.querySelector(".carousel1");
+const firstCardWidth1 = carousel1.querySelector(".card-comments").offsetWidth;
+const arrowBtns1 = document.querySelectorAll(".wrapper3 .angle");
+
+
+
+// ? add eventlistener for the arrow buttons to scroll the carousel left and right
+arrowBtns1.forEach(btn => {
+    btn.addEventListener("click", () => {
+        // console.log(btn.id);
+        carousel1.scrollLeft += btn.id === "left" ? -firstCardWidth1 : firstCardWidth1;
+    })
+});
 // const autoPlay = () => {
 //     if(window.innerWidth < 992) return ; // return id window is smaller than 800
 //     // autopaly the carousel is at the beginning, scroll to the end 
 //     timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 500)
 // }
 // autoPlay();
-
-
-
-
-
-
-
-
-
-
-
-
 // const infiniteScroll = () => {
 //     // if the carousel is at the beginning, scroll to the end
 //     if(carousel.scrollLeft === 0) {
@@ -121,3 +147,4 @@ arrowBtns.forEach(btn => {
         
         // carousl.addEventListener("mousemove", dragging);
         
+
